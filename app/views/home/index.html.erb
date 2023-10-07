@@ -1,7 +1,17 @@
 <% if user_signed_in? %>
-<%# blank %>
+<h1>Logged in</h1>
+
+<%= form_with model: Tweet.new, url: tweets_path, local: true do |f| %>
+  <%= f.text_field :body%>
+  <%= f.submit %>
+<% end %>
+<ul>
+  <% Tweet.find_each do |tweet| %>
+    <li> <%= tweet.body %> </li>
+  <% end %>
+</ul>
+<%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger" %>
 <% else %>
-<h1>Hello world!</h1>
 <%= link_to "Sign up", new_user_registration_path, class: "btn btn-danger" %>
 or
 <%= link_to "Login", new_user_session_path, class: "btn btn-info" %>
