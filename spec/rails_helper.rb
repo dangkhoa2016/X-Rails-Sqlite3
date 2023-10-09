@@ -31,8 +31,8 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   # config.default_formatter = 'documentation'
-  config.color = true
-  config.formatter = :progress
+  # config.color = true
+  # config.formatter = :progress
   # config.formatter = :documentation
   config.order = 'default'
   config.include FactoryBot::Syntax::Methods
