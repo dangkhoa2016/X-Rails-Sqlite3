@@ -96,12 +96,26 @@
     </div>
   <% end %>
   <div class="d-flex align-items-center fs-4 mb-4 px-4">
-    <%= button_tag "Post", class: "btn btn-twitter btn-lg w-100 rounded-pill" %>
+    <%= button_tag "Post", class: "btn btn-twitter btn-lg w-100 rounded-pill", data: {"bs-toggle": "modal", "bs-target": "#exampleModal"} %>
   </div>
 
   <div class="d-flex align-items-center fs-6 mb-4 px-4">
     <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "twitter-link" %>
   </div>
-
-
 </aside>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close mx-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Drafts</h1>
+      </div>
+      <div class="modal-body">
+        <%= render "shared/tweet_form" %>
+      </div>
+
+    </div>
+  </div>
+</div>
