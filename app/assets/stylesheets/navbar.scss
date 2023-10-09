@@ -1,0 +1,15 @@
+aside.side-navbar {
+  a {
+    text-decoration: none;
+    color: black;
+    div {
+      -moz-transition: all .1s ease-in;
+      -o-transition: all .1s ease-in;
+      -webkit-transition: all .1s ease-in;
+      transition: all .1s ease-in;
+      &:hover {
+        background-color: $gray-200;
+      }
+    }
+  }
+}
