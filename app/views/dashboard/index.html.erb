@@ -1,12 +1,25 @@
-<div class="col-7">
+<div class="col-6">
   <div class="mb-3">
     <%= link_to "Home", dashboard_path, class: "fs-4 text-decoration-none text-black fw-semibold" %>
+    <div class="row text-muted mt-3 text-center">
+      <div class="col">
+        For you
+      </div>
+      <div class="col">
+        Following
+      </div>
+    </div>
   </div>
-  <div class="mb-4">
-    <%= render "shared/tweet_form" %>
+  <div class="d-flex py-4 px-3 mb-4">
+    <div class="flex-shrink-0">
+      <img class="rounded-circle me-1" width="48" height="48" src="https://github.com/mdo.png" alt="">
+    </div>
+    <div class="flex-grow-1 ms-3">
+      <%= render "shared/tweet_form" %>
+    </div>
   </div>
   <div id="tweets">
-    <%= render Tweet.order(created_at: :desc) %>
+    <%= render partial: "tweets/tweet", collection: @tweet, as: :tweet_presenter %>
   </div>
   <%# < Tweet.all.reverse.each do |tweet| >
     <= render "tweets/tweet", tweet: tweet >

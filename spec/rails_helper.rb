@@ -70,6 +70,8 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   # config.formatter = :progress
   # config.color = true
+  # Testing time in rspec
+  config.include ActiveSupport::Testing::TimeHelpers
 end
 
 Shoulda::Matchers.configure do |config|
