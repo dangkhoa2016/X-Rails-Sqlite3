@@ -9,3 +9,45 @@
     background-color: $gray-100;
   }
 }
+
+.action-links {
+  svg {
+    position: relative;
+    // top: 2px;
+    &.comments {
+      &:hover {
+        path {
+          fill: $green-300 !important;
+        }
+      }
+    }
+    &.retweets {
+      &:hover {
+        path {
+          fill: purple !important;
+        }
+      }
+    }
+    &.likes {
+      &:hover {
+        path {
+          fill: orange !important;
+        }
+      }
+    }
+    &.views {
+      &:hover {
+        path {
+          fill: red !important;
+        }
+      }
+    }
+    &.shares {
+      &:hover {
+        path {
+          fill: goldenrod !important;
+        }
+      }
+    }
+  }
+}
