@@ -24,7 +24,7 @@
     &.retweets {
       &:hover {
         path {
-          fill: purple !important;
+          fill: orangered !important;
         }
       }
     }
@@ -42,7 +42,7 @@
         }
       }
     }
-    &.shares {
+    &.bookmarks {
       &:hover {
         path {
           fill: goldenrod !important;
