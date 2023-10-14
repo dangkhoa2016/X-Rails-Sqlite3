@@ -11,10 +11,10 @@
 }
 
 .action-links {
-  svg {
+  span, svg {
     position: relative;
     // top: 2px;
-    &.comments {
+    &.reply {
       &:hover {
         path {
           fill: $green-300 !important;

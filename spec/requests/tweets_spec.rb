@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "Tweets", type: :request do
+
+  describe "GET show" do
+    it "succeds" do
+      user = create(:user)
+      sign_in user
+      tweet = create(:tweet)
+      get tweet_path(tweet)
+      expect(response).to have_http_status(:redirect)
+    end
+  end
+
   describe "POST create" do
     context "when user is not logged in" do
       it "is responds with redirect" do
