@@ -10,3 +10,23 @@
     color: $white !important;
   }
 }
+
+div.main-btns {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  a {
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background-color: $gray-200;
+    }
+  }
+}

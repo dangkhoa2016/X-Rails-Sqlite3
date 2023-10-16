@@ -3,49 +3,23 @@
   -o-transition: all .1s ease-in;
   -webkit-transition: all .1s ease-in;
   transition: all .1s ease-in;
-  cursor: pointer;
 
   &:hover {
     background-color: $gray-100;
+    cursor: pointer;
   }
-}
 
-.action-links {
-  span, svg {
-    position: relative;
-    // top: 2px;
-    &.reply {
-      &:hover {
-        path {
-          fill: $green-300 !important;
-        }
+  .action-links {
+    a {
+      span, svg {
+        position: relative;
+        top: 2px;
       }
-    }
-    &.retweets {
-      &:hover {
-        path {
-          fill: orangered !important;
-        }
-      }
-    }
-    &.likes {
-      &:hover {
-        path {
-          fill: orange !important;
-        }
-      }
-    }
-    &.views {
-      &:hover {
-        path {
-          fill: red !important;
-        }
-      }
-    }
-    &.bookmarks {
-      &:hover {
-        path {
-          fill: goldenrod !important;
+      &.reply, &.retweets, &.likes, &.views, &.bookmarks   {
+        &:hover {
+          path {
+            fill: yellow !important;
+          }
         }
       }
     }

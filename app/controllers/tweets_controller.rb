@@ -3,10 +3,11 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
-    respond_to do |format|
-      format.html { redirect_to dashboard_path }
-      format.turbo_stream
-    end
+    @tweet_presenter = TweetPresenter.new(tweet: @tweet, current_user: current_user)
+    # respond_to do |format|
+    #   format.html { redirect_to tweet_path }
+    #   format.turbo_stream
+    # end
   end
 
   def create

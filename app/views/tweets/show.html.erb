@@ -1,5 +1,55 @@
 <div class="col-7">
-  <h1> <%= @tweet.body %> </h1>
+  <div class="mb-3">
+    <%= turbo_frame_tag dom_id(@tweet_presenter.tweet) do %>
+      <div data-controller="tweet-card" data-tweet-path="<%=tweet_path(@tweet_presenter.tweet)%>" class="tweet d-flex py-2 px-3 border-bottom">
+        <div class="flex-shrink-0">
+          <%= image_tag @tweet_presenter.avatar, size: "48x48", class: "rounded-circle" %>
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <p class="mb-0">
+            <span class="fw-bolder"><%= @tweet_presenter.display_name.humanize %></span> <span class="text-muted">
+            @<%= @tweet_presenter.username %>・<%= @tweet_presenter.created_at %>
+            </span>
+          </p>
+          <p> <%= @tweet_presenter.body %> </p>
+          <div class="d-flex justify-content-between align-items-center action-links">
+            <div class="main-btns">
+              <%= link_to tweet_path(@tweet_presenter.tweet), class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle", data: { "ignore-click": true }  do %>
+                <span>
+                  <%= image_tag "chat-fill.png", size: "20x20", class: "me-1 mb-1" %>
+                </span>
+              <% end %>
+            </div>
+            <div class="main-btns">
+              <%= link_to @tweet_presenter.retweet_tweet_url, data: { "ignore-click":
+              true, "turbo_method": @tweet_presenter.turbo_retweet_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
+                <%= image_tag @tweet_presenter.retweet_image, size: "20x20", class: "me-1" %>
+              <% end %>
+              <%= @tweet_presenter.retweets_count %>
+            </div>
+            <div class="main-btns">
+              <%= link_to @tweet_presenter.like_tweet_url, data: { "ignore-click": true, "turbo_method": @tweet_presenter.turbo_like_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
+                <%= image_tag @tweet_presenter.like_image, size: "20x20", class: "me-1" %>
+              <% end %>
+              <%= @tweet_presenter.likes_count %>
+            </div>
+            <div class="main-btns">
+              <%= link_to "#", data: { "ignore-click": true, "turbo_method": @tweet_presenter.turbo_like_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
+                <%= image_tag "analytic-fill.png", size: "20x20", class: "me-1" %>
+              <% end %>
+            </div>
+            <div class="main-btns">
+              <%= link_to @tweet_presenter.bookmark_tweet_url, data: { "ignore-click": true, "turbo_method": @tweet_presenter.turbo_bookmark_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
+                <%= image_tag @tweet_presenter.bookmark_image, size: "20x20", class: "me-1" %>
+              <% end %>
+                <span> <%= @tweet_presenter.bookmark_text %> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="col">
+  column
 </div>
