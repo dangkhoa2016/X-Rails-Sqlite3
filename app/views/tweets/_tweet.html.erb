@@ -1,7 +1,8 @@
 <%= turbo_frame_tag dom_id(tweet_presenter.tweet) do %>
   <div data-controller="tweet-card" data-tweet-path="<%=tweet_path(tweet_presenter.tweet)%>" class="tweet d-flex py-2 px-3 border-bottom">
     <div class="flex-shrink-0">
-      <%= image_tag tweet_presenter.avatar, size: "48x48", class: "rounded-circle" %>
+      <%= image_tag tweet_presenter.avatar, size: "48x48", class: "rounded-circle",  data: { "ignore-click":
+          true } %>
     </div>
     <div class="flex-grow-1 ms-3">
       <p class="mb-0">
@@ -14,7 +15,7 @@
         <div class="main-btns">
           <%= link_to tweet_path(tweet_presenter.tweet), class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle", data: { "ignore-click": true }  do %>
             <span>
-              <%= image_tag "chat-fill.png", size: "20x20", class: "me-1 mb-1" %>
+              <%= image_tag "chat-unfill.png", size: "20x20", class: "me-1 mb-1" %>
             </span>
           <% end %>
         </div>

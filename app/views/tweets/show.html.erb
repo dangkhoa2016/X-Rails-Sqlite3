@@ -1,4 +1,11 @@
 <div class="col-7">
+<%= link_to :back, class: "fs-5 text-decoration-none text-black fw-semibold" do %>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 me-3 mb-2" width="30">
+    <path fill-rule="evenodd" d="M20.25 12a.75.75 0 01-.75.75H6.31l5.47 5.47a.75.75 0 11-1.06 1.06l-6.75-6.75a.75.75 0 010-1.06l6.75-6.75a.75.75 0 111.06 1.06l-5.47 5.47H19.5a.75.75 0 01.75.75z" clip-rule="evenodd" />
+  </svg>
+  <span>Post</span>
+  <% end %>
+
   <div class="mb-3">
     <%= turbo_frame_tag dom_id(@tweet_presenter.tweet) do %>
       <div data-controller="tweet-card" data-tweet-path="<%=tweet_path(@tweet_presenter.tweet)%>" class="tweet d-flex py-2 px-3 border-bottom">
@@ -6,12 +13,15 @@
           <%= image_tag @tweet_presenter.avatar, size: "48x48", class: "rounded-circle" %>
         </div>
         <div class="flex-grow-1 ms-3">
-          <p class="mb-0">
-            <span class="fw-bolder"><%= @tweet_presenter.display_name.humanize %></span> <span class="text-muted">
-            @<%= @tweet_presenter.username %>・<%= @tweet_presenter.created_at %>
-            </span>
-          </p>
-          <p> <%= @tweet_presenter.body %> </p>
+          <p class="fw-bolder mb-0"> <%= @tweet_presenter.display_name.humanize %> </p>
+          <p class="text-muted mb-1"> @<%= @tweet_presenter.username %> </p>
+          <p class="fs-2 mb-1"> <%= @tweet_presenter.body %> </p>
+          <p class="text-muted"> <%= @tweet_presenter.tweet.created_at.strftime("%l:%M %p") %>・<%= @tweet_presenter.tweet.created_at.strftime("%b %d, %Y") %> </p>
+          <div class="d-flex justify-content-start mb-1">
+            <div class="me-4"> <span class="fw-bold"></span> Views</div>
+            <div class="me-4"> <span class="fw-bold"> <%= @tweet_presenter.retweets_count %> </span> Retweets</div>
+            <div class="me-4"> <span class="fw-bold"><%= @tweet_presenter.likes_count %></span> Likes</div>
+          </div>
           <div class="d-flex justify-content-between align-items-center action-links">
             <div class="main-btns">
               <%= link_to tweet_path(@tweet_presenter.tweet), class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle", data: { "ignore-click": true }  do %>
@@ -42,7 +52,6 @@
               <%= link_to @tweet_presenter.bookmark_tweet_url, data: { "ignore-click": true, "turbo_method": @tweet_presenter.turbo_bookmark_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
                 <%= image_tag @tweet_presenter.bookmark_image, size: "20x20", class: "me-1" %>
               <% end %>
-                <span> <%= @tweet_presenter.bookmark_text %> </span>
             </div>
           </div>
         </div>

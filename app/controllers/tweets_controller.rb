@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @tweet_presenter = TweetPresenter.new(tweet: @tweet, current_user: current_user)
     # respond_to do |format|
-    #   format.html { redirect_to tweet_path }
+    #   format.html { redirect_to '#' }
     #   format.turbo_stream
     # end
   end
