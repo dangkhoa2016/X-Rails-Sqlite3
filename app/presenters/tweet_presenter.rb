@@ -4,7 +4,7 @@ class TweetPresenter
 
   def initialize(tweet:, current_user:)
     @tweet = tweet
-    @current_user = current_user
+    @current_user = user
   end
 
   attr_reader :tweet, :current_user
@@ -22,11 +22,11 @@ class TweetPresenter
 
   # For Like feature
 
-  def like_tweet_url
+  def like_tweet_url(source: "tweet_card")
     if tweet_liked_by_current_user?
-      tweet_like_path(tweet, current_user.likes.find_by(tweet: tweet))
+      tweet_like_path(tweet, current_user.likes.find_by(tweet: tweet), source: source)
     else
-      tweet_likes_path(tweet)
+      tweet_likes_path(tweet, source: source)
     end
   end
 
@@ -48,11 +48,11 @@ class TweetPresenter
 
   # For Bookmark feature
 
-  def bookmark_tweet_url
+  def bookmark_tweet_url(source: "tweet_card")
     if tweet_bookmarked_by_current_user?
-      tweet_bookmark_path(tweet, current_user.bookmarks.find_by(tweet: tweet))
+      tweet_bookmark_path(tweet, current_user.bookmarks.find_by(tweet: tweet), source: source)
     else
-      tweet_bookmarks_path(tweet)
+      tweet_bookmarks_path(tweet, source: source)
     end
   end
 
@@ -82,11 +82,11 @@ class TweetPresenter
 
   # For Retweet feature
 
-  def retweet_tweet_url
+  def retweet_tweet_url(source: "tweet_card")
     if tweet_retweeted_by_current_user?
-      tweet_retweet_path(tweet, current_user.retweets.find_by(tweet: tweet))
+      tweet_retweet_path(tweet, current_user.retweets.find_by(tweet: tweet), source: source)
     else
-      tweet_retweets_path(tweet)
+      tweet_retweets_path(tweet, source: source)
     end
   end
 

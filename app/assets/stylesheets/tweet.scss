@@ -4,9 +4,11 @@
   -webkit-transition: all .1s ease-in;
   transition: all .1s ease-in;
 
-  &:hover {
-    background-color: $gray-100;
-    cursor: pointer;
+  &:not(.not-hover) {
+    &:hover {
+      background-color: $gray-100;
+      cursor: pointer;
+    }
   }
 
   .action-links {

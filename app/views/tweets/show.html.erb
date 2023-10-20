@@ -5,58 +5,20 @@
   </svg>
   <span>Post</span>
   <% end %>
-
   <div class="mb-3">
-    <%= turbo_frame_tag dom_id(@tweet_presenter.tweet) do %>
-      <div data-controller="tweet-card" data-tweet-path="<%=tweet_path(@tweet_presenter.tweet)%>" class="tweet d-flex py-2 px-3 border-bottom">
-        <div class="flex-shrink-0">
-          <%= image_tag @tweet_presenter.avatar, size: "48x48", class: "rounded-circle" %>
-        </div>
-        <div class="flex-grow-1 ms-3">
-          <p class="fw-bolder mb-0"> <%= @tweet_presenter.display_name.humanize %> </p>
-          <p class="text-muted mb-1"> @<%= @tweet_presenter.username %> </p>
-          <p class="fs-2 mb-1"> <%= @tweet_presenter.body %> </p>
-          <p class="text-muted"> <%= @tweet_presenter.tweet.created_at.strftime("%l:%M %p") %>・<%= @tweet_presenter.tweet.created_at.strftime("%b %d, %Y") %> </p>
-          <div class="d-flex justify-content-start mb-1">
-            <div class="me-4"> <span class="fw-bold"></span> Views</div>
-            <div class="me-4"> <span class="fw-bold"> <%= @tweet_presenter.retweets_count %> </span> Retweets</div>
-            <div class="me-4"> <span class="fw-bold"><%= @tweet_presenter.likes_count %></span> Likes</div>
-          </div>
-          <div class="d-flex justify-content-between align-items-center action-links">
-            <div class="main-btns">
-              <%= link_to tweet_path(@tweet_presenter.tweet), class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle", data: { "ignore-click": true }  do %>
-                <span>
-                  <%= image_tag "chat-fill.png", size: "20x20", class: "me-1 mb-1" %>
-                </span>
-              <% end %>
-            </div>
-            <div class="main-btns">
-              <%= link_to @tweet_presenter.retweet_tweet_url, data: { "ignore-click":
-              true, "turbo_method": @tweet_presenter.turbo_retweet_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
-                <%= image_tag @tweet_presenter.retweet_image, size: "20x20", class: "me-1" %>
-              <% end %>
-              <%= @tweet_presenter.retweets_count %>
-            </div>
-            <div class="main-btns">
-              <%= link_to @tweet_presenter.like_tweet_url, data: { "ignore-click": true, "turbo_method": @tweet_presenter.turbo_like_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
-                <%= image_tag @tweet_presenter.like_image, size: "20x20", class: "me-1" %>
-              <% end %>
-              <%= @tweet_presenter.likes_count %>
-            </div>
-            <div class="main-btns">
-              <%= link_to "#", data: { "ignore-click": true, "turbo_method": @tweet_presenter.turbo_like_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
-                <%= image_tag "analytic-fill.png", size: "20x20", class: "me-1" %>
-              <% end %>
-            </div>
-            <div class="main-btns">
-              <%= link_to @tweet_presenter.bookmark_tweet_url, data: { "ignore-click": true, "turbo_method": @tweet_presenter.turbo_bookmark_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
-                <%= image_tag @tweet_presenter.bookmark_image, size: "20x20", class: "me-1" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
+    <div data-tweet-path="<%=tweet_path(@tweet_presenter.tweet)%>" class="tweet d-flex py-2 px-3 border-bottom not-hover">
+      <div class="flex-shrink-0">
+        <%= image_tag @tweet_presenter.avatar, size: "48x48", class: "rounded-circle" %>
       </div>
-    <% end %>
+      <div class="flex-grow-1 ms-3">
+        <p class="fw-bolder mb-0"> <%= @tweet_presenter.display_name.humanize %> </p>
+        <p class="text-muted mb-1"> @<%= @tweet_presenter.username %> </p>
+        <p class="fs-2 mb-1"> <%= @tweet_presenter.body %> </p>
+        <p class="text-muted"> <%= @tweet_presenter.tweet.created_at.strftime("%l:%M %p") %>・<%= @tweet_presenter.tweet.created_at.strftime("%b %d, %Y") %> </p>
+          <%= render "show_stats", tweet_presenter: @tweet_presenter %>
+      </div>
+    </div>
+
   </div>
 </div>
 <div class="col">
