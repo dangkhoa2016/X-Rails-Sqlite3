@@ -119,7 +119,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Drafts</h1>
       </div>
       <div class="modal-body">
-        <%= render "shared/tweet_form" %>
+        <%= render "shared/tweet_form", button_label: "Post", form_submit_path: tweets_path %>
       </div>
 
     </div>
