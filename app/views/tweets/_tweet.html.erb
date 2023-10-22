@@ -33,8 +33,9 @@
           <%= tweet_presenter.likes_count %>
         </div>
         <div class="main-btns">
-          <%= link_to "#", data: { "ignore-click": true, "turbo_method": tweet_presenter.turbo_like_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
+          <%= link_to tweet_path(tweet_presenter.tweet), data: { "ignore-click": true, "turbo_method": tweet_presenter.turbo_like_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
             <%= image_tag "analytic-fill.png", size: "20x20", class: "me-1" %>
+            <span> <%= tweet_presenter.views_count %> </span>
           <% end %>
         </div>
         <div class="main-btns">
