@@ -4,7 +4,7 @@
   -webkit-transition: all .1s ease-in;
   transition: all .1s ease-in;
 
-  &:not(.not-hover) {
+  &.hover {
     &:hover {
       background-color: $gray-100;
       cursor: pointer;

@@ -4,13 +4,13 @@ class TweetPresenter
 
   def initialize(tweet:, current_user:)
     @tweet = tweet
-    @current_user = user
+    @current_user = current_user
   end
 
   attr_reader :tweet, :current_user
 
   delegate :user, :body, :likes_count, :retweets_count, to: :tweet
-  delegate :display_name, :username, :avatar, to: :user
+  delegate :display_name, :username, to: :user
 
   def created_at
     if (Time.zone.now - tweet.created_at) > 1.day
@@ -18,6 +18,12 @@ class TweetPresenter
     else
       time_ago_in_words(tweet.created_at)
     end
+  end
+
+  def avatar
+    return user.avatar if user.avatar.present?
+
+    ActionController::Base.helpers.asset_path("user.png")
   end
 
   # For Like feature

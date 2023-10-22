@@ -11,5 +11,5 @@
               end
 %>
 <%= turbo_stream.replace target_id do %>
-  <%= render partial: "tweets/show_stats", locals: { tweet_presenter: TweetPresenter.new(tweet: @tweet, current_user: current_user) } %>
+  <%= render partial: partial_name, locals: { tweet_presenter: TweetPresenter.new(tweet: @tweet.reload, current_user: current_user.reload) } %>
 <% end %>
