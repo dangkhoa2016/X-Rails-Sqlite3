@@ -1,0 +1,44 @@
+<div class="col-7">
+  <div class="mb-3">
+    <%= link_to :back, class: "fs-5 text-decoration-none text-black fw-semibold" do %>
+      <div class="flex mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 me-3 mb-2" width="30">
+          <path fill-rule="evenodd" d="M20.25 12a.75.75 0 01-.75.75H6.31l5.47 5.47a.75.75 0 11-1.06 1.06l-6.75-6.75a.75.75 0 010-1.06l6.75-6.75a.75.75 0 111.06 1.06l-5.47 5.47H19.5a.75.75 0 01.75.75z" clip-rule="evenodd" />
+        </svg>
+        <div class="flex-grow-1 ms-3">
+          <p class="fw-bolder mb-0"> <%= current_user.display_name.humanize %> </p>
+          <p class="text-muted mb-1 fs-6"> <%= current_user.tweets.size %> Posts</p>
+        </div>
+      </div>
+    <% end %>
+    <div class="d-flex justify-content-between align-items-end mb-5">
+      <div>
+        <% if current_user.avatar.present? %>
+          <%= image_tag current_user.avatar, size: "150x150", class: "rounded-circle" %>
+        <% else %>
+          <%= image_tag "user.png", size: "150x150", class: "rounded-circle" %>
+        <% end %>
+       </div>
+      <div>
+        <%= link_to "Edit Profile", "", class: "btn btn-outline-info rounded-pill" %>
+      </div>
+    </div>
+
+    <div class="">
+      <p class="fs-4 mb-0 fw-bold"> <%= current_user.display_name.humanize %> </p>
+      <p class="text-muted mb-3">@<%= current_user.username %> </p>
+      <p class="text-muted mb-2">
+        <%= image_tag "calendar.png", size: "18x18", class: "me-2 justify-content-top" %>
+        Joined
+        <%= current_user.created_at.strftime("%b %d, %Y") %> </p>
+      <div class="d-flex justify-content-start">
+        <div class="me-3"> <span class="fw-semibold">27</span> Following</div>
+        <div> <span class="fw-semibold">6</span> Followers</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="col">
+  column
+</div>

@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     resources :reply_tweets, only: :create
   end
   get :dashboard, to: "dashboard#index"
+  get :profile, to: "profile#show"
+  
   resources :usernames, only: [ :new, :update ]
 end
