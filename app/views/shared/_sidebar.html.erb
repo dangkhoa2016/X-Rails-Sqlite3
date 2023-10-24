@@ -96,7 +96,7 @@
     </div>
   <% end %>
   <div class="d-flex align-items-center fs-4 mb-4 px-4">
-    <%= button_tag "Post", class: "btn btn-twitter btn-lg w-100 rounded-pill", data: {"bs-toggle": "modal", "bs-target": "#exampleModal"} %>
+    <%= button_tag "Post", class: "btn btn-twitter btn-lg w-100 rounded-pill", data: {"bs-toggle": "modal", "bs-target": "#tweet-modal"} %>
   </div>
   <span class="badge d-flex align-items-center p-1 pe-2 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-pill">
     <img class="rounded-circle me-1" width="24" height="24" src="https://github.com/mdo.png" alt="">
@@ -111,7 +111,7 @@
 </aside>
 
 <!-- Modal -->
-<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" id="tweet-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -121,7 +121,6 @@
       <div class="modal-body">
         <%= render "shared/tweet_form", button_label: "Post", form_submit_path: tweets_path %>
       </div>
-
     </div>
   </div>
 </div>
