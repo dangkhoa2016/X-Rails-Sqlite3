@@ -1,0 +1,30 @@
+<%= turbo_frame_tag "profile-section" do %>
+  <div>
+    <p class="fs-4 mb-0 fw-bold"> <%= current_user.display_name.humanize %> </p>
+    <p class="text-muted mb-3">@<%= current_user.username %> </p>
+    <p> <%= current_user.bio %> </p>
+
+    <div class="d-flex justify-content-start mb-3">
+      <div class="me-4">
+        <%= image_tag "calendar.png", size: "18x18", class: "me-2 justify-content-top" %>
+        Joined
+        <span class="text-muted"><%= current_user.created_at.strftime("%b %d, %Y") %></span>
+      </div>
+      <div class="me-4">
+        <%= image_tag "calendar.png", size: "18x18", class: "me-2 justify-content-top" %>
+        Location
+        <span class="text-muted"><%= current_user.location %></span>
+      </div>
+      <div class="me-4">
+        <%= image_tag "calendar.png", size: "18x18", class: "me-2 justify-content-top" %>
+        URL
+        <span class="text-muted"><%= link_to current_user.url, current_user.url, target: :_blank %></span>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-start">
+      <div class="me-3"> <span class="fw-semibold">27</span> Following</div>
+      <div> <span class="fw-semibold">6</span> Followers</div>
+    </div>
+  </div>
+<% end %>
