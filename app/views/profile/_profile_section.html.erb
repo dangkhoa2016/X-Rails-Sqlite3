@@ -1,24 +1,25 @@
 <%= turbo_frame_tag "profile-section" do %>
   <div>
-    <p class="fs-4 mb-0 fw-bold"> <%= current_user.display_name.humanize %> </p>
-    <p class="text-muted mb-3">@<%= current_user.username %> </p>
-    <p> <%= current_user.bio %> </p>
+    <p class="fs-4 mb-0 fw-bold"> <%= user.display_name.humanize %> </p>
+    <p class="text-muted mb-3">@<%= user.username %> </p>
+    <p> <%= user.bio %> </p>
 
     <div class="d-flex justify-content-start mb-3">
       <div class="me-4">
         <%= image_tag "calendar.png", size: "18x18", class: "me-2 justify-content-top" %>
         Joined
-        <span class="text-muted"><%= current_user.created_at.strftime("%b %d, %Y") %></span>
+        <span class="text-muted"><%= user.created_at.strftime("%b %d, %Y") %></span>
       </div>
       <div class="me-4">
         <%= image_tag "calendar.png", size: "18x18", class: "me-2 justify-content-top" %>
         Location
-        <span class="text-muted"><%= current_user.location %></span>
+        <span class="text-muted"><%= user.location %></span>
       </div>
       <div class="me-4">
         <%= image_tag "calendar.png", size: "18x18", class: "me-2 justify-content-top" %>
         URL
-        <span class="text-muted"><%= link_to current_user.url, current_user.url, target: :_blank %></span>
+        <%# sanitized_url = user.url.start_with?("http") ? user.url : "http://#{user.url}" %>
+        <span class="text-muted"><%= link_to user.url, user_url, target: :_blank %></span>
       </div>
     </div>
 
