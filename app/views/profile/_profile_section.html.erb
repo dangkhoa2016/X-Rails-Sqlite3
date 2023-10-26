@@ -19,7 +19,7 @@
         <%= image_tag "calendar.png", size: "18x18", class: "me-2 justify-content-top" %>
         URL
         <%# sanitized_url = user.url.start_with?("http") ? user.url : "http://#{user.url}" %>
-        <span class="text-muted"><%= link_to user.url, user_url, target: :_blank %></span>
+        <span class="text-muted"><%= link_to user.url, user.url, target: :_blank %></span>
       </div>
     </div>
 
