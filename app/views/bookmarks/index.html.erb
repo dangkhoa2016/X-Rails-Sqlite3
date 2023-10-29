@@ -1,0 +1,22 @@
+<div class="col-7 border-start border-end">
+  <div class="mb-3">
+    <%= link_to "Bookmarks", bookmarks_path, class: "fs-4 text-decoration-none text-black fw-semibold" %>
+    <div class="row text-muted text-center mt-4 border-bottom py-3">
+      <div class="col">
+        For you
+      </div>
+      <div class="col">
+        Following
+      </div>
+    </div>
+  </div>
+  <div id="tweets">
+    <%= render partial: "tweets/tweet", collection: @tweet_presenters, as: :tweet_presenter %>
+  </div>
+  <%# < Tweet.all.reverse.each do |tweet| >
+    <= render "tweets/tweet", tweet: tweet >
+  < end > %>
+</div>
+<div class="col">
+column
+</div>

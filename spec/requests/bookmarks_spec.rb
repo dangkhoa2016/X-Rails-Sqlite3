@@ -6,6 +6,13 @@ RSpec.describe "Bookmarks", type: :request do
 
   before { sign_in user }
 
+  describe "Get index" do
+    it "succeeds" do
+      get bookmarks_path
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "Post create" do
     it "creates a new bookmark" do
       expect do
