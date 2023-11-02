@@ -15,4 +15,33 @@ RSpec.describe Tweet, type: :model do
   it { should have_and_belong_to_many(:hashtags) }
   it { should validate_presence_of(:body) }
   it { should validate_length_of(:body).is_at_most(280) }
+
+  describe "saving hashtags" do
+    let(:user) { create(:user)
+    }
+    context "when there are no hastags in the body" do
+      it "does not create any hastag" do
+        expect do
+          Tweet.create(user: user, body: "today is the best day")
+        end.not_to change { Hashtag.count }
+      end
+    end
+
+    context "when there are hastags in the body" do
+      it "create any hastag" do
+        expect do
+          Tweet.create(user: user, body: "#today is the best #day")
+        end.to change { Hashtag.count }.by(2)
+      end
+    end
+
+    context "when there are duplicate hastags in the body" do
+      it "does not create an extra hashtag if already in the database table" do
+        Hashtag.create(tag: "day")
+        expect do
+          Tweet.create(user: user, body: "#today is the best #day")
+        end.to change { Hashtag.count }.by(1)
+      end
+    end
+  end
 end
