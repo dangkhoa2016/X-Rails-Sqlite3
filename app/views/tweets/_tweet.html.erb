@@ -9,7 +9,7 @@
         @<%= tweet_presenter.username %>・<%= tweet_presenter.created_at %>
         </span>
       </p>
-      <p> <%= tweet_presenter.body %> </p>
+      <%= tweet_presenter.body_html.html_safe %>
       <div class="d-flex justify-content-between align-items-center action-links">
         <div class="main-btns">
           <%= link_to tweet_path(tweet_presenter.tweet), class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle", data: { "ignore-click": true }  do %>

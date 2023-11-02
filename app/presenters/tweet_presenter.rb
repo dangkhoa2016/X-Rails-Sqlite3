@@ -20,6 +20,17 @@ class TweetPresenter
     end
   end
 
+  def body_html(p_class: "")
+    texts = tweet.body.split(" ").map do |word|
+      if word.include?("#")
+        "<a class=\"twitter-link\">#{word}</a>"
+      else
+        word
+      end
+    end
+    "<p class=\"#{p_class}\">#{texts.join(" ")}</p>"
+  end
+
   def avatar
     return user.avatar if user.avatar.present?
 
