@@ -36,7 +36,7 @@
     Notification
     </div>
   <% end %>
-  <%= link_to "#", class: "d-flex align-items-center fs-5 mb-2 #{nav_link_active?('messages')}" do %>
+  <%= link_to message_threads_path, class: "d-flex align-items-center fs-5 mb-2 #{nav_link_active?('message_threads')}" do %>
     <div class="px-4 py-2 rounded-pill">
       <span class="me-2 position-relative" style="bottom: 3px;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" width="32">
@@ -103,7 +103,7 @@
     More
     </div>
   <% end %>
-  <div class="d-flex align-items-center fs-4 mb-4 px-4">
+  <div class="d-flex align-items-center fs-4 mb-4">
     <%= button_tag "Post", class: "btn btn-twitter btn-lg w-100 rounded-pill", data: {"bs-toggle": "modal", "bs-target": "#tweet-modal"} %>
   </div>
   <%# <span class="badge d-flex align-items-center p-1 pe-2 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-pill">
@@ -113,8 +113,13 @@
       <span class="me-0">test</span>
     </div>
   </span> %>
-  <div class="d-flex align-items-center fs-6 mb-4 px-4">
-    <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-twitter btn-lg w-100 rounded-pill" %>
+  <%= link_to "Log out", class: "d-flex align-items-center fs-5 mb-2 #{nav_link_active?('lists')}" do %>
+    <div class="px-4 py-2 rounded-pill">
+    Logout
+    </div>
+  <% end %>
+  <div class="d-flex align-items-center fs-5 mb-2 #{nav_link_active?('lists')}">
+    <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "px-4 py-2 rounded-pill" %>
   </div>
 </aside>
 
