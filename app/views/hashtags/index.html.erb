@@ -6,16 +6,21 @@
         For you
       </div>
       <div class="col">
-        Following
+        Trending
+      </div>
+      <div class="col">
+        News
+      </div>
+      <div class="col">
+        Sports
+      </div>
+      <div class="col">
+        Entertainment
       </div>
     </div>
   </div>
 
-  <% @hashtags.each do |hashtag| %>
-    <div>
-      <%= hashtag.tag %>
-    </div>
-  <% end %>
+  <%= render @hashtags%>
 
 </div>
 <div class="col">
