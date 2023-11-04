@@ -1,7 +1,10 @@
 <%= turbo_frame_tag dom_id(tweet_presenter.tweet) do %>
   <div data-controller="tweet-card" data-tweet-path="<%=tweet_path(tweet_presenter.tweet)%>" class="tweet d-flex py-2 px-3 border-bottom hover">
     <div class="flex-shrink-0">
-      <%= image_tag tweet_presenter.avatar, size: "48x48", class: "rounded-circle",  data: { "ignore-click": true } %>
+      <%# need to FIX link %>
+      <%= link_to user_path(id: tweet_presenter.user.id) do %>
+        <%= image_tag tweet_presenter.avatar, size: "48x48", class: "rounded-circle",  data: { "ignore-click": true } %>
+      <% end %>
     </div>
     <div class="flex-grow-1 ms-3">
       <p class="mb-0">

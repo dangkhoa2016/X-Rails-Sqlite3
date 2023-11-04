@@ -113,11 +113,11 @@
       <span class="me-0">test</span>
     </div>
   </span> %>
-  <%= link_to "Log out", class: "d-flex align-items-center fs-5 mb-2 #{nav_link_active?('lists')}" do %>
+  <%# <link_to "Log out", class: "d-flex align-items-center fs-5 mb-2 #{nav_link_active?('lists')}" do
     <div class="px-4 py-2 rounded-pill">
     Logout
-    </div>
-  <% end %>
+    </div> %>
+
   <div class="d-flex align-items-center fs-5 mb-2 #{nav_link_active?('lists')}">
     <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "px-4 py-2 rounded-pill" %>
   </div>
