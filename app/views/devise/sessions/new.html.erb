@@ -1,23 +1,30 @@
-<div class="container py-5" style="max-width: 340px">
-  <h2>Log in</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="mb-3">
-      <%= f.label :email, class: "form-label" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
+<div class="container py-5 border border-primary rounded mt-5" style="max-width: 585px">
+  <div class="container border-primary" style="max-width: 300px">
+    <div class="text-center mb-3">
+      <svg viewBox="0 0 24 24" aria-label="X" role="img" class="r-1nao33i r-4qtqp9 r-yyyyoo r-16y2uox r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr" width="42"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
     </div>
-    <div class="mb-3">
-      <%= f.label :password, class: "form-label" %><br />
-      <%= f.password_field :password, autocomplete: "current-password", class: "form-control"  %>
-    </div>
-    <% if devise_mapping.rememberable? %>
-      <div class="mb-3">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, class: "form-label" %>
+    <h1 class="fw-bold fs-1">Sign in to X</h1>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="mb-1">
+        <%= f.label :email, class: "form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
+      </div>
+      <div class="mb-1">
+        <%= f.label :password, class: "form-label" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control"  %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="mb-1">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, class: "form-label" %>
+        </div>
+      <% end %>
+      <div class="actions">
+        <%= f.submit "Log in", class: "btn btn-twitter rounded-pill w-100" %>
       </div>
     <% end %>
-    <div class="actions">
-      <%= f.submit "Log in", class: "btn btn-twitter rounded-pill" %>
+    <div class="mt-3">
+      <%= render "devise/shared/links" %>
     </div>
-  <% end %>
-  <%= render "devise/shared/links" %>
+  </div>
 </div>
