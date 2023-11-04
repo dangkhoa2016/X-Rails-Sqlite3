@@ -1,0 +1,11 @@
+<div id="message-form">
+  <%= form_with model: Message.new, url: messages_path do |f| %>
+    <div class="input-group mb-3">
+      <%= hidden_field_tag :user_id, user&.id %>
+      <%= f.text_field :body, class: "form-control", placeholder: "Start a new message" %>
+      <%= button_tag class: "btn btn-outline-light" do %>
+        <%= image_tag "send-message.png", size: "25x25"%>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -13,7 +13,11 @@ export default class extends Controller {
       e.preventDefault();
       // console.log('message thread clicked');
       fetch(`/messages/${messageThread.dataset.messageThreadId}/messages`, { headers: this.headers }).then(response => response.text()).then(html => Turbo.renderStreamMessage(html));
+      // this.scrollToBottom(messageThread);
     })
    });
   }
+  // scrollToBottom(element) {
+  //   element.scrollTop = element.scrollHeight - element.clientHeight;
+  // }
 }
