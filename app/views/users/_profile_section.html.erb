@@ -22,11 +22,15 @@
       <% if controller_name == "profile" %>
         <%= button_tag "Edit Profile", class: "btn btn-outline-info rounded-pill", data: {"bs-toggle": "modal", "bs-target": "#profile-edit-modal"} %>
       <% else %>
-        <div> <%= render "users/follow_button", user: @user, current_user: current_user %> </div>
+      <div>
+        <%= link_to message_threads_path(user_id: @user.id), class: "btn btn-outline-info rounded-pill"  do %>
+          <%= image_tag "chat-unfill.png", size: "25x25" %> Messages
+        <% end %>
+        <%= render "users/follow_button", user: @user, current_user: current_user %>
+      </div>
       <% end %>
     </div>
   </div>
-
   <div>
     <p class="fs-4 mb-0 fw-bold"> <%= user.display_name.humanize %> </p>
     <p class="text-muted mb-3">@<%= user.username %> </p>
