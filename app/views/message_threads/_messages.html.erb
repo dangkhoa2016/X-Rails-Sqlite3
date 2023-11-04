@@ -1,5 +1,14 @@
-  <div id="messages">
-    <% messages&.each do |message| %>
-      <p> <%= message.body %> </p>
-    <% end %>
-  </div>
+<div id="messages">
+  <% messages&.each do |message| %>
+    <div class="d-flex <%= 'flex-row-reverse' if message.user == current_user %>">
+      <div>
+        <div class="badge fs-6 <%= message.user == current_user ? 'text-bg-dark' : 'text-bg-primary' %> rounded-pill py-3 px-3 my-1">
+          <%= message.body %>
+        </div>
+        <div class="d-flex <%= 'flex-row-reverse' if message.user == current_user %>">
+          <p class="text-muted" style="font-size: 12px"> <%= message.created_at.strftime("%b %-d, %Y, %l:%M %p") %> </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

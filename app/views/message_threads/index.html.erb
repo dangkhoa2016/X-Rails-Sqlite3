@@ -47,7 +47,7 @@
 </div>
 <div class="col-7">
   <div class="vh-100 position-relative">
-    <%= render "messages", messages: @messages %>
+    <%= render "messages", messages: @messages, my_user: current_user %>
     <div class="position-absolute w-100 bottom-0">
       <%= form_with model: Message.new, url: messages_path do |f| %>
         <div class="input-group mb-3">
