@@ -3,11 +3,7 @@
     <div class="input-group mb-3">
       <%= hidden_field_tag :user_id, user&.id %>
       <%= f.text_field :body, class: "form-control", placeholder: "Start a new message" %>
-     <%# Need to fix message button turbo method  data: { "turbo-method": :post} %>
-     
-
-
-     <%= button_tag class: "btn btn-outline-light" do %>
+      <%= button_tag class: "btn btn-outline-light" do %>
         <%= image_tag "send-message.png", size: "25x25"%>
       <% end %>
     </div>
