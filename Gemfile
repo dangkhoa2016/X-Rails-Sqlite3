@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+gem 'activerecord-import'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'delayed_job_active_record'
