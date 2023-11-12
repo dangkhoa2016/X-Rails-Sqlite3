@@ -1,25 +1,32 @@
-<div class="container py-5" style="max-width: 340px">
-  <h2>Sign up</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="mb-3">
-      <%= f.label :email, class: "form-label" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+<div class="container py-5 mt-5" style="max-width: 385px">
+  <div class="container" style="max-width: 300px">
+    <div class="text-center mb-3">
+      <%= link_to'/' do %>
+        <svg viewBox="0 0 24 24" aria-label="X" role="img" class="r-1nao33i r-4qtqp9 r-yyyyoo r-16y2uox r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr" width="42"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+      <% end %>
     </div>
-    <div class="mb-3">
-      <%= f.label :password, class: "form-label" %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-    </div>
-    <div class="mb-3">
-      <%= f.label :password_confirmation, class: "form-label" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Sign up", class: "btn btn-twitter rounded-pill" %>
-    </div>
-  <% end %>
-  <%= render "devise/shared/links"  %>
+    <h2 class="fw-bold fs-1">Sign up</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="mb-3">
+        <%= f.label :email, class: "form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :password, class: "form-label" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :password_confirmation, class: "form-label" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-twitter rounded-pill w-100 mb-3" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links"  %>
+  </div>
 </div>
