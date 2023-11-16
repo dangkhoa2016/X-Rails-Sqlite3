@@ -1,4 +1,5 @@
-require 'pry'
+# frozen_string_literal: true
+
 class MessageThreadsController < ApplicationController
   before_action :authenticate_user!
 

@@ -1,3 +1,5 @@
+# FrozenStringLiteralComment: true
+
 require 'rails_helper'
 
 RSpec.describe ViewTweetJob, type: :job do
