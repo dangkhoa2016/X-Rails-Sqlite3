@@ -2,13 +2,25 @@
   <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
   <%# <button class="btn btn-outline-success" type="submit">Search</button> %>
 </form>
- <div class="hashtag-sidebar p-2 border border-1 rounded">
-  <p class="p-2 fs-4 mb-0 fw-bold ">What’s happening</p>
-    <% Hashtag.limit(5).order(hashtags: :desc).each do |hashtag| %>
-      <div class="item p-2" data-controller="hashtag" data-url="<%= hashtag_path(hashtag) %>">
-        <p class="fw-bold mb-0 fs-5">#<%= hashtag.tag %></p>
-        <p class="text-muted fs-6 mb-0"> <%= hashtag.tweets.size %> posts</p>
-      </div>
-    <% end %>
-    <%= link_to "Show more", hashtags_path, class: "twitter-link p-2" %>
-  </div>
+
+<div class="hashtag-sidebar p-2 border border-primary rounded-4 mb-3">
+  <p class="p-2 fs-4 mb-0 fw-bold ">Subscribe to Premium</p>
+  <p class="p-2 fs-6 mb-0 fw-bold ">Subscribe tp unlock new features and if elegible, recieve a share of ads revenue.</p>
+  <button type="button" class="btn btn-dark rounded-pill ps-3 pe-3">Subscribe</button>
+</div>
+
+<div class="hashtag-sidebar p-2 border border-primary rounded-4">
+<p class="p-2 fs-4 mb-0 fw-bold ">What’s happening</p>
+  <% Hashtag.limit(5).order(hashtags: :desc).each do |hashtag| %>
+    <div class="item p-2" data-controller="hashtag" data-url="<%= hashtag_path(hashtag) %>">
+      <p class="fw-bold mb-0 fs-5">#<%= hashtag.tag %></p>
+      <p class="text-muted fs-6 mb-0"> <%= hashtag.tweets.size %> posts</p>
+    </div>
+  <% end %>
+  <%= link_to "Show more", hashtags_path, class: "twitter-link p-2" %>
+</div>
+
+<div class="hashtag-sidebar p-2 border border-primary rounded-4 mt-3">
+  <p class="p-2 fs-4 mb-0 fw-bold ">Who to follow</p>
+  <button type="button" class="btn btn-dark rounded-pill ps-3 pe-3">Follow</button>
+</div>
