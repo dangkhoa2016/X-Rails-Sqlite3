@@ -9,5 +9,9 @@ class DashboardController < ApplicationController
     @tweet = Tweet.includes(:liked_users, :bookmarked_users, :retweeted_users, :user).where(user: following_users).order(created_at: :desc).map do |tweet|
       TweetPresenter.new(tweet: tweet, current_user: current_user)
     end
+
+    @tweet_activities = current_user.tweet_activities.order(created_at: :desc).map do |tweet_activity|
+      TweetPresenter.new(tweet: tweet_activity.tweet, current_user: current_user)
+    end
   end
 end

@@ -18,7 +18,7 @@
     </div>
   </div>
   <div id="tweets">
-    <%= render partial: "tweets/tweet", collection: @tweet, as: :tweet_presenter %>
+    <%= render partial: "tweets/tweet", collection: @tweet_activities, as: :tweet_presenter %>
   </div>
   <%# < Tweet.all.reverse.each do |tweet| >
     <= render "tweets/tweet", tweet: tweet >
