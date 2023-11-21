@@ -23,6 +23,10 @@ class TweetPresenter
     case tweet_activity.verb
     when "liked"
       "<p class=\"fw-bold text-muted mb-0\" style=\"margin-left: 5rem; font-size: 13px\">#{tweet_activity.actor.display_name} liked</p>"
+    when "replied"
+      "<p class=\"fw-bold text-muted mb-0\" style=\"margin-left: 5rem; font-size: 13px\">#{tweet_activity.actor.display_name} replied to</p>"
+    else
+      ""
     end
   end
 
