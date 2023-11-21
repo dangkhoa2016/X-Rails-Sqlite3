@@ -4,7 +4,7 @@ class TweetPresenter
 
   def initialize(tweet:, current_user:, tweet_activity: nil)
     @tweet = tweet
-    @current_user = user
+    @current_user = current_user
     @tweet_activity = tweet_activity
   end
 
@@ -13,18 +13,14 @@ class TweetPresenter
 
   attr_reader :tweet, :current_user, :tweet_activity
 
-  def render_tweet_activity?
-    return false unless tweet_activity
-
-    tweet_activity.verb.in?(TweetActivity::VERBS - %w[tweeted])
-  end
-
   def tweet_activity_html
-    case tweet_activity.verb
+    case tweet_activity&.verb
     when "liked"
       "<p class=\"fw-bold text-muted mb-0\" style=\"margin-left: 5rem; font-size: 13px\">#{tweet_activity.actor.display_name} liked</p>"
     when "replied"
       "<p class=\"fw-bold text-muted mb-0\" style=\"margin-left: 5rem; font-size: 13px\">#{tweet_activity.actor.display_name} replied to</p>"
+    when "retweeted"
+      "<p class=\"fw-bold text-muted mb-0\" style=\"margin-left: 5rem; font-size: 13px\">#{tweet_activity.actor.display_name} retweeted</p>"
     else
       ""
     end
