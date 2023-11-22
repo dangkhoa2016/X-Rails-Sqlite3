@@ -17,7 +17,7 @@
       <%= render "shared/tweet_form", button_label: "Post", form_submit_path: tweets_path %>
     </div>
   </div>
-  <div id="tweets">
+  <div id="tweets" data-controller="dashboard-tweets" data-next-page="<%= @tweet_activities_data[:next_page]%>" data-last-page="<%= @tweet_activities_data[:last_page]%>">
     <%= render partial: "tweets/tweet", collection: @tweet_activities_data[:tweet_activities], as: :tweet_presenter %>
   </div>
 </div>
