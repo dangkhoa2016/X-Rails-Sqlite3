@@ -1,8 +1,8 @@
 <%= tweet_presenter.tweet_activity_html.html_safe %>
+
 <%= turbo_frame_tag dom_id(tweet_presenter.tweet) do %>
-  <div data-controller="tweet-card" data-tweet-path="<%=tweet_path(tweet_presenter.tweet)%>" class="tweet d-flex py-2 px-3 border-bottom hover">
+  <div data-controller="tweet-card" data-tweet-path="<%= tweet_path(tweet_presenter.tweet)%>" class="tweet d-flex py-2 px-3 border-bottom hover">
     <div class="flex-shrink-0">
-      <%# need to FIX link %>
       <%= link_to user_path(tweet_presenter.user) do %>
         <%= image_tag tweet_presenter.avatar, size: "48x48", class: "rounded-circle" %>
       <% end %>
@@ -24,8 +24,7 @@
           <% end %>
         </div>
         <div class="main-btns">
-          <%= link_to tweet_presenter.retweet_tweet_url, data: { "ignore-click":
-          true, "turbo_method": tweet_presenter.turbo_retweet_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
+          <%= link_to tweet_presenter.retweet_tweet_url, data: { "ignore-click": true, "turbo_method": tweet_presenter.turbo_retweet_data_method }, class: "d-flex align-items-center fs-6 reply px-1 py-1 rounded-circle" do %>
             <%= image_tag tweet_presenter.retweet_image, size: "20x20", class: "me-1" %>
           <% end %>
           <%= tweet_presenter.retweets_count %>
