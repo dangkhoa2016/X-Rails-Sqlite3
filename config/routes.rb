@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   end
   resources :messages, only: :create
   resources :notifications, only: [:index, :destroy]
+  get "/tweet_polling", to: "tweet_polling#index"
 end
