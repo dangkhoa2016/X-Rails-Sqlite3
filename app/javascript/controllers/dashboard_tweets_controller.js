@@ -9,7 +9,7 @@ export default class extends Controller {
       if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
         if (this.element.dataset.lastPage === 'false') {
           // alert('this is not the last page');
-          fetch(`dashboard?page=${this.element.dataset.nextPage}`, { headers: this.headers }).then(response => response.text()).then(html => Turbo.renderStreamMessage(html));
+          fetch(`/dashboard?page=${this.element.dataset.nextPage}`, { headers: this.headers }).then(response => response.text()).then(html => Turbo.renderStreamMessage(html));
         }
       }
     });

@@ -8,10 +8,16 @@ class TweetPresenter
     @tweet_activity = tweet_activity
   end
 
-  delegate :user, :body, :likes_count, :retweets_count, :views_count, :reply_tweets_count, to: :tweet
+  delegate :id, :user, :body, :likes_count, :retweets_count, :views_count, :reply_tweets_count, to: :tweet
   delegate :display_name, :username, to: :user
 
   attr_reader :tweet, :current_user, :tweet_activity
+
+  # def render_tweet_activity?
+  #   return false unless tweet_activity
+
+  #   tweet_activity.verb.in?(TweetActivity::VERBS - %w[tweeted])
+  # end  (in _tweet.html insert if tweet_presenter.render_tweet_activity?
 
   def tweet_activity_html
     case tweet_activity&.verb
