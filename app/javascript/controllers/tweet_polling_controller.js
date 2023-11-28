@@ -9,6 +9,6 @@ export default class extends Controller {
       if (this.element.dataset.latestTweetId.length > 0) {
         fetch(`/tweet_polling?latest_tweet_id=${this.element.dataset.latestTweetId}`, { headers: this.headers }).then(response => response.text()).then(html => Turbo.renderStreamMessage(html));
       }
-    }, 3000);
+    }, 9000);
   }
 }

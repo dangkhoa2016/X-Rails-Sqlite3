@@ -5,7 +5,7 @@ class ProfileController < ApplicationController
 
   def show
     @user = current_user
-    @tweet_presenters = @user.tweets.map do |tweet|
+    @tweet_presenters = @user.tweets.order(created_at: :desc).map do |tweet|
       TweetPresenter.new(tweet: tweet, current_user: @user)
     end
     render "users/show"

@@ -32,8 +32,4 @@ class TweetsController < ApplicationController
   def tweet
     @tweet ||= Tweet.find(params[:id])
   end
-
-  # def create_view_record
-  #   View.create(tweet: tweet, user: current_user)
-  # end
 end

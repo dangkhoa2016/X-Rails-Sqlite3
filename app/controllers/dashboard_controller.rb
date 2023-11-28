@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tweet_activities = current_user.tweet_activities.order(created_at: :desc).page(params[:page]).per(10)
+    @tweet_activities = current_user.tweet_activities.order(created_at: :desc).page(params[:page]).per(5)
 
     @tweet_activities_data = {
       tweet_activities: @tweet_activities.map do |tweet_activity|
