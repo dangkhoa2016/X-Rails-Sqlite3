@@ -1,6 +1,6 @@
 # X Web App
 
-Build build with:
+Build with:
 
 * Rubi On Rails, 
 
@@ -8,10 +8,12 @@ Build build with:
 
 * BootStrap, 
 
-* DPosgreSql.
-
-* Deploy Heroku
+* Sqlite3.
 
 * Test Rspec
   
-<img width="1190" alt="Screenshot 2023-11-04 at 8 39 01 PM" src="https://github.com/favio102/X-rails/assets/93895982/468986fc-edf5-48dc-a457-b4b4982960f8">
+## Run
+* bundle install
+* rails db:setup
+* rails db:seed
+* bin/dev

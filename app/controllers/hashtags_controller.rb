@@ -4,7 +4,7 @@ class HashtagsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @hashtags = Hashtag.includes(:tweets).order(hashtags: :desc)
+    @hashtags = Hashtag.includes(:tweets).order(tag: :desc)
   end
 
   def show

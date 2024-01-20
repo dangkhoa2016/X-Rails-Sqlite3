@@ -9,21 +9,21 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+./log
+log/
+./log/
+log
 
-# Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
+/tmp/**
+tmp/**
+tmp/
+tmp
+./tmp/
+./tmp
 
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
 
 /public/assets
 

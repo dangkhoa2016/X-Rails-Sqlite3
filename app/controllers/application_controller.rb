@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # skip_before_action :verify_authenticity_token
   before_action :redirect_to_username_form, if: -> { user_signed_in? && current_user.username.blank? }
 
   protected

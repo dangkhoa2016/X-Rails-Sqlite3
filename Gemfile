@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.2.2'
 
 gem 'activerecord-import'
 gem 'bootsnap', require: false
@@ -11,10 +11,10 @@ gem 'devise'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'kaminari'
-gem 'pg', '~> 1.1'
+gem 'sqlite3'
 gem 'pry'
 gem 'puma', '~> 5.0'
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 7.1.3'
 gem 'redis', '~> 4.0'
 gem 'sassc-rails'
 gem 'sprockets-rails'
@@ -46,7 +46,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
+  gem 'faker'
   gem 'rspec_pacman_formatter'
   gem 'shoulda-matchers', '~> 5.0'
 end

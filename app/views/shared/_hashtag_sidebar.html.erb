@@ -10,7 +10,7 @@
 
 <div class="hashtag-sidebar p-2 border border-primary rounded-4">
 <p class="p-2 fs-4 mb-0 fw-bold ">What’s happening</p>
-  <% Hashtag.limit(2).order(hashtags: :desc).each do |hashtag| %>
+  <% Hashtag.limit(2).order(tag: :desc).each do |hashtag| %>
     <div class="item p-2" data-controller="hashtag" data-url="<%= hashtag_path(hashtag) %>">
       <p class="fw-bold mb-0 fs-5">#<%= hashtag.tag %></p>
       <p class="text-muted fs-6 mb-0"> <%= hashtag.tweets.size %> posts</p>
